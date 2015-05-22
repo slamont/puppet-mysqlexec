@@ -10,7 +10,6 @@
 #  - $unless: an unless for the command (Default: undef)
 #  - $mysqlunless: an unless for the command to be executed in mysql that should return true or false. Overrides the unless command (Default: undef)
 #  - $logoutput: log level for output (Default: 'on_failure')
-#  - $schedule: contrain to a pre-defined schedule (Default: undef)
 
 define mysqlexec(
   $host=undef,
