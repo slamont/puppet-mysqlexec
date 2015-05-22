@@ -16,7 +16,6 @@ define mysqlexec(
   $host=undef,
   $username=undef,
   $password=undef,
-  $dbname=undef,
   $mysqlcommand=undef,
   $unless=undef,
   $mysqlunless=undef,

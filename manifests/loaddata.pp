@@ -52,7 +52,6 @@ define mysqlexec::loaddata(
     $unlesscommand = template('mysqlexec/checkdata.erb')
     mysqlexec{"${name}_mysqlloaddata":
       host         => $host,
-      dbname       => $dbname,
       username     => $username,
       password     => $password,
       mysqlcommand => $command,
@@ -62,7 +61,6 @@ define mysqlexec::loaddata(
   } else {
     mysqlexec{"${name}_mysqlloaddata":
       host         => $host,
-      dbname       => $dbname,
       username     => $username,
       password     => $password,
       mysqlcommand => $command,
