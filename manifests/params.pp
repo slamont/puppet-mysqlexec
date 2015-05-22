@@ -7,12 +7,12 @@
 # Sample Usage:
 #
 class mysqlexec::params {
-	$execlaunchpaths = ["/usr/bin", "/usr/sbin", "/bin", "/sbin", "/etc"]
-	$executefrom = "/tmp/"
-	
-	case $::operatingsystem {
+  $execlaunchpaths = ['/usr/bin', '/usr/sbin', '/bin', '/sbin', '/etc']
+  $executefrom = '/tmp/'
+
+  case $::operatingsystem {
     'centos', 'redhat', 'fedora': {
-      #TODO: Test that this works in these flavors
+      # TODO: Test that this works in these flavors
       $zoneinfo = '/usr/share/zoneinfo'
     }
     'ubuntu', 'debian': {

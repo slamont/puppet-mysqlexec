@@ -1,2 +1,5 @@
+pkg/
+Gemfile.lock
+.bundle
 .svn
 .metadata

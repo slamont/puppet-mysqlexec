@@ -21,23 +21,23 @@ define mysqlexec::db(
   if $ensure== 'present' {
     $command = template('mysqlexec/dbpresent.erb')
     mysqlexec{"${name}_mysqldbpresent":
-      host=>$host,
-      dbname=>$dbname,
-      username=>$username,
-      password=>$password,
-      mysqlcommand=>$command,
-      logoutput=>$logoutput
+      host         => $host,
+      dbname       => $dbname,
+      username     => $username,
+      password     => $password,
+      mysqlcommand => $command,
+      logoutput    => $logoutput
     }
   } else {
     $command = template('mysqlexec/dbabsent.erb')
     mysqlexec{"${name}_mysqldbabsent":
-      host=>$host,
-      dbname=>$dbname,
-      username=>$username,
-      password=>$password,
-      mysqlcommand=>$command,
-      logoutput=>$logoutput
+      host         => $host,
+      dbname       => $dbname,
+      username     => $username,
+      password     => $password,
+      mysqlcommand => $command,
+      logoutput    => $logoutput
     }
   }
-  
+
 }

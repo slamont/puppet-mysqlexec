@@ -29,26 +29,26 @@ define mysqlexec::user(
   if $althost != undef {
     $onhost = $althost
   } else{
-   $onhost = $host
+    $onhost = $host
   }
   if $ensure== 'present' {
     $command = template('mysqlexec/userpresent.erb')
     mysqlexec{"${name}_mysqldbuserpresent":
-      host=>$host,
-      username=>$username,
-      password=>$password,
-      mysqlcommand=>$command,
-      logoutput=>$logoutput
+      host         => $host,
+      username     => $username,
+      password     => $password,
+      mysqlcommand => $command,
+      logoutput    => $logoutput
     }
   } else {
     $command = template('mysqlexec/userabsent.erb')
     mysqlexec{"${name}_mysqldbuserabsent":
-      host=>$host,
-      username=>$username,
-      password=>$password,
-      mysqlcommand=>$command,
-      logoutput=>$logoutput
+      host         => $host,
+      username     => $username,
+      password     => $password,
+      mysqlcommand => $command,
+      logoutput    => $logoutput
     }
   }
-  
+
 }

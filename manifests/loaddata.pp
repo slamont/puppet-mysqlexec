@@ -38,37 +38,37 @@ define mysqlexec::loaddata(
   if $althost != undef {
     $onhost = $althost
   } else{
-   $onhost = $host
+    $onhost = $host
   }
-  
+
   if $replace == true{
-    $loadtype = "REPLACE"
+    $loadtype = 'REPLACE'
   } else {
-    $loadtype = "IGNORE"
+    $loadtype = 'IGNORE'
   }
   $command = template('mysqlexec/loaddata.erb')
 
-  if $checkdata == true { 
+  if $checkdata == true {
     $unlesscommand = template('mysqlexec/checkdata.erb')
-	  mysqlexec{"${name}_mysqlloaddata":
-	    host=>$host,
-	    dbname=>$dbname,
-	    username=>$username,
-	    password=>$password,
-	    mysqlcommand=>$command,
-	    mysqlunless=>$unlesscommand,
-	    logoutput=>$logoutput
-	  }
-	} else {
-	  mysqlexec{"${name}_mysqlloaddata":
-      host=>$host,
-      dbname=>$dbname,
-      username=>$username,
-      password=>$password,
-      mysqlcommand=>$command,
-      mysqlunless=>$unlesscommand,
-      unless=>$unless,
-      logoutput=>$logoutput
+    mysqlexec{"${name}_mysqlloaddata":
+      host         => $host,
+      dbname       => $dbname,
+      username     => $username,
+      password     => $password,
+      mysqlcommand => $command,
+      mysqlunless  => $unlesscommand,
+      logoutput    => $logoutput
     }
-	}
+  } else {
+    mysqlexec{"${name}_mysqlloaddata":
+      host         => $host,
+      dbname       => $dbname,
+      username     => $username,
+      password     => $password,
+      mysqlcommand => $command,
+      mysqlunless  => $unlesscommand,
+      unless       => $unless,
+      logoutput    => $logoutput
+    }
+  }
 }
