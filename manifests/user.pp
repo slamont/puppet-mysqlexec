@@ -22,8 +22,9 @@ define mysqlexec::user(
   $dbuser=undef,
   $dbpassword=undef,
   $privileges = [],
-  $dbname =undef,
+  $dbname=undef,
   $ensure='present',
+  $force_grant_option=false,
   $logoutput='on_failure'
 ) {
   if $althost != undef {

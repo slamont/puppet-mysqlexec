@@ -20,11 +20,13 @@ define mysqlexec::db(
 ) {
   if $ensure== 'present' {
     $command = template('mysqlexec/dbpresent.erb')
+    $unlesscommand = template('mysqlexec/checkdb.erb')
     mysqlexec{"${name}_mysqldbpresent":
       host         => $host,
       username     => $username,
       password     => $password,
       mysqlcommand => $command,
+      mysqlunless  => $unlesscommand,
       logoutput    => $logoutput
     }
   } else {
